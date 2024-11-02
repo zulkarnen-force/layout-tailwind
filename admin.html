@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Enhanced Collapsible Admin Dashboard</title>
+        <link
+            href="./output.css"
+            rel="stylesheet"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"
+            defer
+        ></script>
+        <style>
+            .transition-width {
+                transition: width 0.3s;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+        <div class="flex min-h-screen">
+            <!-- Sidebar as <aside> -->
+            <aside
+                id="sidebar"
+                class="w-64 bg-gray-800 text-white transition-width duration-300"
+                aria-label="Sidebar"
+            >
+                <div
+                    class="flex items-center justify-between p-4 font-bold text-xl"
+                >
+                    <span class="sidebar-text">Admin Panel</span>
+                    <button
+                        onclick="toggleSidebar()"
+                        class="text-gray-300 hover:text-gray-100"
+                        aria-label="Toggle Sidebar"
+                    >
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <nav class="mt-5 space-y-2">
+                    <a
+                        href="#"
+                        class="flex items-center space-x-3 py-2 px-4 text-gray-300 hover:bg-gray-700"
+                    >
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="sidebar-text">Dashboard</span>
+                    </a>
+                    <a
+                        href="#"
+                        class="flex items-center space-x-3 py-2 px-4 text-gray-300 hover:bg-gray-700"
+                    >
+                        <i class="fas fa-users"></i>
+                        <span class="sidebar-text">Users</span>
+                    </a>
+                    <a
+                        href="#"
+                        class="flex items-center space-x-3 py-2 px-4 text-gray-300 hover:bg-gray-700"
+                    >
+                        <i class="fas fa-cogs"></i>
+                        <span class="sidebar-text">Settings</span>
+                    </a>
+                    <a
+                        href="#"
+                        class="flex items-center space-x-3 py-2 px-4 text-gray-300 hover:bg-gray-700"
+                    >
+                        <i class="fas fa-chart-line"></i>
+                        <span class="sidebar-text">Reports</span>
+                    </a>
+                    <a
+                        href="#"
+                        class="flex items-center space-x-3 py-2 px-4 text-gray-300 hover:bg-gray-700"
+                    >
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="sidebar-text">Logout</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main content area as <main> -->
+            <main class="flex-1 flex flex-col">
+                <!-- Top Navbar as <header> -->
+                <header
+                    class="flex items-center justify-between bg-white shadow p-4"
+                    aria-label="Top Navigation"
+                >
+                    <div class="text-lg font-semibold text-gray-800">
+                        Dashboard
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button
+                            class="text-gray-600 hover:text-gray-800"
+                            aria-label="Notifications"
+                        >
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="relative">
+                            <button
+                                class="text-gray-600 hover:text-gray-800"
+                                aria-label="User Menu"
+                            >
+                                User
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Content area -->
+                <section
+                    class="flex-1 p-6 bg-gray-100"
+                    aria-label="Main Content"
+                >
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    >
+                        <article class="bg-white p-4 rounded-lg shadow-md">
+                            Content Block 1
+                        </article>
+                        <article class="bg-white p-4 rounded-lg shadow-md">
+                            Content Block 2
+                        </article>
+                        <article class="bg-white p-4 rounded-lg shadow-md">
+                            Content Block 3
+                        </article>
+                    </div>
+                    <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
+                        Main Content Area
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- JavaScript for Collapsible Sidebar -->
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById("sidebar");
+                const sidebarTextElements =
+                    document.querySelectorAll(".sidebar-text");
+                sidebar.classList.toggle("w-64");
+                sidebar.classList.toggle("w-20");
+                sidebarTextElements.forEach((element) => {
+                    element.classList.toggle("hidden");
+                });
+            }
+        </script>
+    </body>
+</html>
